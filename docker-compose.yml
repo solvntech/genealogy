@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+    db:
+        container_name: mysql_db
+        image: mysql:8.0.30-oracle
+        cap_add:
+            - SYS_NICE
+        restart: always
+        ports:
+            - '${MYSQL_PORT}:${MYSQL_PORT}'
+        volumes:
+            - db:/var/lib/mysql
+        env_file:
+            - .env
+volumes:
+    db:
