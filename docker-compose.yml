@@ -19,7 +19,7 @@ services:
             context: .
             target: dev
         depends_on:
-            - database
+            - '${MYSQL_HOST}'
         networks:
             - default
         volumes:
