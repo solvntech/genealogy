@@ -9,5 +9,5 @@ create table if not exists marital_infos(
 );
 
 ALTER TABLE marital_infos add constraint fk_marital_status_id foreign key (marital_status_id) references marital_statuses(id);
-ALTER TABLE marital_infos add constraint fk_husband_id foreign key (husband_id) references persons(id);
-ALTER TABLE marital_infos add constraint fk_wife_id foreign key (wife_id) references persons(id);
+ALTER TABLE marital_infos add constraint fk_husband_id foreign key (husband_id) references people(id);
+ALTER TABLE marital_infos add constraint fk_wife_id foreign key (wife_id) references people(id);

@@ -1,7 +1,7 @@
 version: '3.8'
 services:
     db:
-        container_name: mysql_db
+        container_name: genealogy_db
         image: mysql:8.0.30-oracle
         cap_add:
             - SYS_NICE

@@ -5,6 +5,7 @@ import (
 	"github.com/duchai27798/demo_migrate/src/database"
 	"github.com/duchai27798/demo_migrate/src/routes"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
 )
 
@@ -17,6 +18,8 @@ func main() {
 	database.ConnectDB()
 
 	app := fiber.New()
+	app.Use(logger.New(logger.Config{}))
+
 	routes.InitRoute(app)
 	app.Listen(":3000")
 }

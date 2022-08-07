@@ -14,14 +14,14 @@ type InitializeController struct {
 	mysqlSql *sql.DB
 }
 
-func (initializeController InitializeController) InitDB(content *fiber.Ctx) error {
+func (initializeController InitializeController) InitDB(context *fiber.Ctx) error {
 	if err := database.Migration(initializeController.mysqlSql); err != nil {
-		return content.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+		return context.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"status":  fiber.StatusInternalServerError,
 			"message": err.Error(),
 		})
 	}
-	return content.Status(fiber.StatusOK).JSON(fiber.Map{
+	return context.Status(fiber.StatusOK).JSON(fiber.Map{
 		"status":  fiber.StatusOK,
 		"message": "ok",
 	})

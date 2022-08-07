@@ -6,34 +6,34 @@ import (
 )
 
 type IConstantController interface {
-	GetGenders(content *fiber.Ctx) error
-	GetPositionTitles(content *fiber.Ctx) error
-	GetMaritalStatuses(content *fiber.Ctx) error
-	GetPersonStatuses(content *fiber.Ctx) error
+	GetGenders(context *fiber.Ctx) error
+	GetPositionTitles(context *fiber.Ctx) error
+	GetMaritalStatuses(context *fiber.Ctx) error
+	GetPersonStatuses(context *fiber.Ctx) error
 }
 
 type ConstantController struct {
 	constantService services.IConstantService
 }
 
-func (constantController ConstantController) GetMaritalStatuses(content *fiber.Ctx) error {
+func (constantController ConstantController) GetMaritalStatuses(context *fiber.Ctx) error {
 	personStatuses := constantController.constantService.FindMaritalStatuses()
-	return content.Status(fiber.StatusOK).JSON(personStatuses)
+	return context.Status(fiber.StatusOK).JSON(personStatuses)
 }
 
-func (constantController ConstantController) GetPersonStatuses(content *fiber.Ctx) error {
+func (constantController ConstantController) GetPersonStatuses(context *fiber.Ctx) error {
 	personStatuses := constantController.constantService.FindPersonStatuses()
-	return content.Status(fiber.StatusOK).JSON(personStatuses)
+	return context.Status(fiber.StatusOK).JSON(personStatuses)
 }
 
-func (constantController ConstantController) GetGenders(content *fiber.Ctx) error {
+func (constantController ConstantController) GetGenders(context *fiber.Ctx) error {
 	genders := constantController.constantService.FindGenders()
-	return content.Status(fiber.StatusOK).JSON(genders)
+	return context.Status(fiber.StatusOK).JSON(genders)
 }
 
-func (constantController ConstantController) GetPositionTitles(content *fiber.Ctx) error {
+func (constantController ConstantController) GetPositionTitles(context *fiber.Ctx) error {
 	positionTitles := constantController.constantService.FindPositionTitles()
-	return content.Status(fiber.StatusOK).JSON(positionTitles)
+	return context.Status(fiber.StatusOK).JSON(positionTitles)
 }
 
 func NewConstantController(constantService services.IConstantService) IConstantController {

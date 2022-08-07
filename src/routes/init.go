@@ -14,6 +14,8 @@ var (
 	mySqlDB              *sql.DB
 	constantService      services.IConstantService
 	constantController   api.IConstantController
+	personService        services.IPersonService
+	personController     api.IPersonController
 	initializeController api.IInitializeController
 )
 
@@ -22,6 +24,8 @@ func InitRoute(app *fiber.App) {
 	mySqlDB = database.MySqlDB
 	constantService = services.NewConstantService(DB)
 	constantController = api.NewConstantController(constantService)
+	personService = services.NewPersonService(DB)
+	personController = api.NewPersonController(personService)
 	initializeController = api.NewInitializeController(mySqlDB)
 
 	apiInit := app.Group("/INIT")
@@ -35,5 +39,11 @@ func InitRoute(app *fiber.App) {
 		api.Get("/position-titles", constantController.GetPositionTitles)
 		api.Get("/person-statuses", constantController.GetPersonStatuses)
 		api.Get("/marital-statuses", constantController.GetMaritalStatuses)
+
+		personApi := app.Group("/person")
+		{
+			personApi.Get("/all", personController.GetPeople)
+			personApi.Get("/:id", personController.GetPerson)
+		}
 	}
 }
