@@ -4,5 +4,5 @@ create table if not exists marital_statuses(
 );
 
 insert into marital_statuses values
-('1', 'Đã cưới'),
-('2', 'Đã ly hôn');
+('cuoi', 'Đã cưới'),
+('lyhon', 'Đã ly hôn');

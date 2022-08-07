@@ -4,6 +4,6 @@ CREATE TABLE IF NOT EXISTS person_statuses(
 );
 
 insert into person_statuses values
-('1', 'Còn sống'),
-('2', 'Đã qua đời'),
-('3', 'Chưa xác định');
+('consong', 'Còn sống'),
+('quadoi', 'Đã qua đời'),
+('chuaxacdinh', 'Chưa xác định');

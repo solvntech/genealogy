@@ -4,5 +4,5 @@ create table if not exists genders(
 );
 
 insert into genders values
-('1', 'Nam'),
-('2', 'Nữ');
+('male', 'Nam'),
+('female', 'Nữ');
