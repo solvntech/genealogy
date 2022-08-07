@@ -7,6 +7,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
+	"os"
 )
 
 func main() {
@@ -16,10 +17,10 @@ func main() {
 		fmt.Println("Error loading .env file")
 	}
 	database.ConnectDB()
-
+	ApiPort := os.Getenv("API_PORT")
 	app := fiber.New()
 	app.Use(logger.New(logger.Config{}))
 
 	routes.InitRoute(app)
-	app.Listen(":3000")
+	app.Listen(":" + ApiPort)
 }

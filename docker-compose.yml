@@ -1,6 +1,6 @@
-version: '3.8'
+version: '3.9'
 services:
-    db:
+    database:
         container_name: genealogy_db
         image: mysql:8.0.30-oracle
         cap_add:
@@ -12,5 +12,22 @@ services:
             - db:/var/lib/mysql
         env_file:
             - .env
+    app:
+        container_name: api
+        build:
+            dockerfile: Dockerfile
+            context: .
+            target: dev
+        depends_on:
+            - database
+        networks:
+            - default
+        volumes:
+            - .:/opt/app/api
+        ports:
+            - '${API_PORT}:${API_PORT}'
+        env_file:
+            - .env
 volumes:
     db:
+    app:
