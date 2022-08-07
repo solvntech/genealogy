@@ -5,13 +5,13 @@ services:
         image: mysql:8.0.30-oracle
         cap_add:
             - SYS_NICE
+        env_file:
+            - .env
         restart: always
         ports:
             - '${MYSQL_PORT}:${MYSQL_PORT}'
         volumes:
             - db:/var/lib/mysql
-        env_file:
-            - .env
     app:
         container_name: api
         build:
