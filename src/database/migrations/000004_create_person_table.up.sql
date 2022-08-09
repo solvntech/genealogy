@@ -24,6 +24,8 @@ insert into people (id, birth_name, gene_name, birthday, father_id, position_tit
 ('29c81192-33cd-48a8-a4f1-60a4f56fb150', 'Nguyễn Đức Thắng', 'Nguyễn Đức Thắng', null, '131d0699-d7d9-48ba-9cbd-36343035687a', 'thunam', 'quadoi'),
 ('8d193965-75a8-4a5d-8712-83fdb4d73499', 'Nguyễn Đức Hinh', 'Nguyễn Đức Hinh', null, '131d0699-d7d9-48ba-9cbd-36343035687a', 'thunam', 'quadoi'),
 ('783c7b5e-f5e0-4c89-927d-9e9e9818bd99', 'Nguyễn Đức Ngữ', 'Nguyễn Đức Ngữ', null, '8d193965-75a8-4a5d-8712-83fdb4d73499', 'truongnam', 'consong'),
+('f66ca8b8-b4e8-41c8-8fb4-9e97e92a8f18', 'Nguyễn Thị Thu Hà', 'Nguyễn Thị Thu Hà', null, '8d193965-75a8-4a5d-8712-83fdb4d73499', 'thunu', 'consong'),
+('2e208b11-0503-4f86-90df-70f323b02c4a', 'Nguyễn Thị Thu Hạ', 'Nguyễn Thị Thu Hạ', null, '8d193965-75a8-4a5d-8712-83fdb4d73499', 'utnu', 'consong'),
 ('9c1d010c-45ad-4871-be01-03071d62d106', 'Nguyễn Đức Thành Luận', 'Nguyễn Đức Luận', null, '783c7b5e-f5e0-4c89-927d-9e9e9818bd99', 'truongnam', 'consong'),
 ('99869989-05ff-4c62-890a-07cb38e52a25', 'Nguyễn Đức Thành Phát', 'Nguyễn Đức Phát', null, '783c7b5e-f5e0-4c89-927d-9e9e9818bd99', 'utnam', 'consong'),
 ('4d932b25-6246-45dd-b988-2678487d7f56', 'Nguyễn Đức Hân', 'Nguyễn Đức Hân', 25545600000, '8d193965-75a8-4a5d-8712-83fdb4d73499', 'thunam', 'consong'),

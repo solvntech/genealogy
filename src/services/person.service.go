@@ -9,10 +9,16 @@ import (
 type IPersonService interface {
 	FindPeople() *[]models.Person
 	FindPerson(id string) (*models.Person, error)
+	CreatePerson(id string) (*models.Person, error)
 }
 
 type PersonService struct {
 	DB *gorm.DB
+}
+
+func (personService PersonService) CreatePerson(id string) (*models.Person, error) {
+	//TODO implement me
+	panic("implement me")
 }
 
 func (personService PersonService) FindPerson(id string) (*models.Person, error) {
