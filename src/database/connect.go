@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 	"log"
 	"os"
 	"sync"
@@ -31,12 +32,13 @@ func ConnectDB() (*sql.DB, *gorm.DB) {
 		} else {
 			fmt.Println("DB connect successful")
 		}
-
 		gormDB, gormDBErr := gorm.Open(
 			mysql.New(mysql.Config{
 				Conn: sqlDB,
 			}),
-			&gorm.Config{},
+			&gorm.Config{
+				Logger: logger.Default.LogMode(logger.Info),
+			},
 		)
 		if gormDBErr != nil {
 			log.Fatal(gormDBErr)

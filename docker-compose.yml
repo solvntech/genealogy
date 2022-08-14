@@ -14,6 +14,7 @@ services:
             - '${MYSQL_PORT}:${MYSQL_PORT}'
         volumes:
             - .:/opt/app/api
+        command: ['--log_bin_trust_function_creators=1']
         networks:
             - genealogy_network
     app:

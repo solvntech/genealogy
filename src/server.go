@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/duchai27798/demo_migrate/src/database"
+	"github.com/duchai27798/demo_migrate/src/helpers"
 	"github.com/duchai27798/demo_migrate/src/routes"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -18,6 +19,7 @@ func main() {
 		fmt.Println("Error loading .env file")
 	}
 	database.ConnectDB()
+	helpers.InitValidator()
 	ApiPort := os.Getenv("API_PORT")
 	app := fiber.New()
 	app.Use(logger.New(logger.Config{}))

@@ -43,7 +43,9 @@ func InitRoute(app *fiber.App) {
 		personApi := app.Group("/person")
 		{
 			personApi.Get("/all", personController.GetPeople)
-			personApi.Get("/:id", personController.GetPerson)
+			personApi.Get("/get/:id", personController.GetPerson)
+			personApi.Post("/create", personController.CreateNewPerson)
+			personApi.Delete("/delete/:id", personController.DeletePerson)
 		}
 	}
 }
