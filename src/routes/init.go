@@ -43,7 +43,7 @@ func InitRoute(app *fiber.App) {
 		api.Get("/person-statuses", constantController.GetPersonStatuses)
 		api.Get("/marital-statuses", constantController.GetMaritalStatuses)
 
-		personApi := app.Group("/person")
+		personApi := api.Group("/person")
 		{
 			personApi.Get("/all", personController.GetPeople)
 			personApi.Get("/get/:id", personController.GetPerson)
