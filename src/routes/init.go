@@ -11,14 +11,15 @@ import (
 )
 
 var (
-	DB                   *gorm.DB
-	mySqlDB              *sql.DB
-	constantService      services.IConstantService
-	constantController   api.IConstantController
-	personService        services.IPersonService
-	personController     api.IPersonController
-	initializeController api.IInitializeController
-	authController       auth.IAuthController
+	DB                       *gorm.DB
+	mySqlDB                  *sql.DB
+	constantService          services.IConstantService
+	constantController       api.IConstantController
+	personService            services.IPersonService
+	personController         api.IPersonController
+	initializeController     api.IInitializeController
+	authService              services.IAuthService
+	authenticationController auth.IAuthenticationController
 )
 
 func InitRoute(app *fiber.App) {
@@ -29,7 +30,8 @@ func InitRoute(app *fiber.App) {
 	personService = services.NewPersonService(DB)
 	personController = api.NewPersonController(personService)
 	initializeController = api.NewInitializeController(mySqlDB)
-	authController = auth.NewAuthController()
+	authService = services.NewAuthService(DB)
+	authenticationController = auth.NewAuthController(authService)
 
 	apiInit := app.Group("/INIT")
 	{
@@ -54,8 +56,9 @@ func InitRoute(app *fiber.App) {
 
 	auth := app.Group("/auth")
 	{
-		auth.Post("/login", authController.Login)
-		auth.Post("/register", authController.Register)
-		auth.Post("/logout", authController.Logout)
+		auth.Post("/login", authenticationController.Login)
+		auth.Get("/users", authenticationController.GetAllUsers)
+		auth.Post("/register", authenticationController.Register)
+		auth.Post("/logout", authenticationController.Logout)
 	}
 }
