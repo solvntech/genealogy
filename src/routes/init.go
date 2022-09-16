@@ -20,6 +20,7 @@ var (
 	initializeController     api.IInitializeController
 	authService              services.IAuthService
 	authenticationController auth.IAuthenticationController
+	jwtService               services.IJWTService
 )
 
 func InitRoute(app *fiber.App) {
@@ -30,8 +31,9 @@ func InitRoute(app *fiber.App) {
 	personService = services.NewPersonService(DB)
 	personController = api.NewPersonController(personService)
 	initializeController = api.NewInitializeController(mySqlDB)
+	jwtService = services.NewJWTService()
 	authService = services.NewAuthService(DB)
-	authenticationController = auth.NewAuthController(authService)
+	authenticationController = auth.NewAuthController(authService, jwtService)
 
 	apiInit := app.Group("/INIT")
 	{
