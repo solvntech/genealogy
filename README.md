@@ -4,7 +4,7 @@
     <img src="./images/logo.png" alt="Logo" width="300">
     <h3 align="center">SOL Genealogy</h3>
     <p align="center">
-        Genealogy management APIs
+        Genealogy management APIs open source
         <br />
         <br />
         <a href="">View Demo</a>
