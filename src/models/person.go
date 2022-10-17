@@ -13,6 +13,7 @@ type Person struct {
 	GeneName        string         `json:"gene_name"`
 	SecondName      string         `json:"second_name"`
 	Birthday        int64          `json:"birthday"`
+	DateOfDeathText string         `json:"date_of_death_text"`
 	FatherId        string         `json:"father_id"`
 	MotherId        string         `json:"mother_id"`
 	PositionTitleId string         `json:"position_title_id" validate:"required"`

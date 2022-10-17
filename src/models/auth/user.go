@@ -10,8 +10,8 @@ import (
 type User struct {
 	interfaces.Model
 	Email    string      `json:"email" validate:"required,email"`
-	Password string      `json:"password" validate:"required"`
-	RoleId   string      `json:"role_id"`
+	Password string      `json:"-" validate:"required"`
+	RoleId   string      `json:"-"`
 	Role     models.Role `json:"role,omitempty" gorm:"foreignKey:RoleId;references:Id"`
 }
 
